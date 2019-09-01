@@ -38,15 +38,16 @@ getAccumulatedMonth();
 // Результат сохранить в переменную accumulatedMonth
 let accumulatedMonth = getAccumulatedMonth();
 
-// 1) — функция getTargetMonth подсчитывает за какой период будет достигнута цель, зная результат месячного накопления и возвращает результат
+// 1) — функция getTargetMonth подсчитывает за какой период будет достигнута цель, зная результат месячного накопления 
 let getTargetMonth = function() {
-    return mission / accumulatedMonth; 
+    return  mission / accumulatedMonth; 
 };
 getTargetMonth();
-console.log('Сумму в:', mission, ' - Вы накопите за ', getTargetMonth(), 'месяцев');
-console.log('А точнее за', Math.floor(getTargetMonth()));
+period = getTargetMonth();
+console.log('Сумму в:', mission, ' - Вы накопите за ', period, 'месяцев');
+console.log('А точнее за', Math.floor(period));
 
-period =  mission / budgetMonth;
+ 
 // console.log('Сумму в:', mission, ' - Вы накопите за ', period, 'месяцев');
 // console.log('А точнее за', Math.ceil(period));
 
