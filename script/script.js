@@ -2,11 +2,11 @@
 
 // 1)-Следующим переменным присвоить значения
 let money = 5000,                                     
-    income = 'фриланс', 
-    addExpenses = 'еда, проезд, комуналка',
-    deposit = true, 
-    mission = 100000, 
-    period = 12;
+income = 'фриланс', 
+addExpenses = 'еда, проезд, комуналка',
+deposit = true, 
+mission = 100000, 
+period = 12;
 
 // 2) -Вывести в консоль тип данных значений переменных money, income, deposit
 console.log(typeof money);                  
