@@ -1,11 +1,11 @@
-'use stript';
+'use strict';
 
 let money, 
-    income, 
-    addExpenses, 
-    deposit, 
-    mission, 
-    period;
+income, 
+addExpenses, 
+deposit, 
+mission, 
+period;
 
 alert('Говорят, что тяжело в учениях...');
 
