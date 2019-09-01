@@ -1,34 +1,72 @@
 'use strict';
 
-let money = +prompt('Ваш месячный доход: ', '5432'),                                     
+let money,                                    
 inCome = 'фриланс', 
-addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую', 'еда, проезд, комуналка'),
-deposit = confirm('Есть ли у вас депозит в банке?'), 
+//addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую', 'еда, проезд, комуналка'),
+//deposit = confirm('Есть ли у вас депозит в банке?'), 
 mission = 123456, 
 period;
 
-// 1) — Оставить функцию showTypeof, которые написали в уроке
+
+
+
+
+let start = function() {
+	 money = +prompt('Ваш месячный доход? ', '5432');
+	  
+	 while(isNaN(money) || money === '' || money === null){
+		money = +prompt('Ваш месячный доход? ', '5432');
+		console.log('Ваш месячный доход? ', money); 
+	 }
+};
+start();
+
+
+
+
+
 let showTypeof = function(data) {
 	console.log('Основные данные: ', data, typeof(data));
 };
 showTypeof(money);
 showTypeof(inCome);
-showTypeof(deposit);
+//showTypeof(deposit);
 
 //console.log(addExpenses.split(', '));
 
-let exprensesMonth1 = prompt('Какие обязательные ежемесячные расходы у вас есть?', ' Люблю потусоваться, знаете...'),
-exprenses1 = +prompt('Во сколько это обойдется?', 987),
-exprensesMonth2 = prompt('Какие обязательные ежемесячные расходы у вас есть?', ' Вечер пятницы...'),
-exprenses2 = +prompt('Во сколько это обойдется?', 567),
-budgetMonth = money - (exprenses1 + exprenses1);
+ let exprenses1,
+	 exprenses2,
+	 
+     budgetMonth = money - (exprenses1 + exprenses1);
 
 
-// 1) getExpensesMonth, которая возвращает сумму всех расходов за месяц
+
+
+
+
+ 
 let getExpensesMonth =function() {
-	return exprensesMonth2 + exprenses2;
+	let sum = 0;
+	for(let i = 0; i < 2; i++){
+       if(i === 0){
+		exprenses1 = prompt('Какие обязательные ежемесячные расходы у вас есть?', ' Люблю потусоваться, знаете...');
+	   }
+
+	   if(i === 1){
+		exprenses2 = prompt('Какие обязательные ежемесячные расходы у вас есть?', ' Вечер пятницы...');
+	   }
+
+		sum += +prompt('Во сколько это обойдется?', 555);
+	}
+	return sum;
 };
-getExpensesMonth();
+let expensesAmount = getExpensesMonth()
+console.log('sum: :', expensesAmount);
+
+
+
+
+
 
 // 1) — функция getAccumulatedMonth возвращает Накопления за месяц (Доходы минус расходы)
 let getAccumulatedMonth = function(){
