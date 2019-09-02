@@ -76,6 +76,7 @@ getAccumulatedMonth();
 let accumulatedMonth = getAccumulatedMonth();
 console.log('Статус вашгего дохода: ', accumulatedMonth);
 
+
 // функция getTargetMonth подсчитывает за какой период будет достигнута цель, зная результат месячного накопления 
 // let getTargetMonth = function() {
 // 	return  mission / expensesAmount;
@@ -85,6 +86,7 @@ console.log('Статус вашгего дохода: ', accumulatedMonth);
 // console.log('Период накопления: ', period, 'месяцев');
 // console.log('Сумму ', mission, ' - Вы накопите за ', period, 'месяцев');
 // console.log('А точнее за', Math.floor(period));
+
 
 // 4) Если budgetDay отрицательное значение то вместо уровня дохода пусть выводится сообщение “Что то пошло не так”
 let getStatusIncome = function(){
