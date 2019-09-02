@@ -2,8 +2,8 @@
 
 let money,                                    
 inCome = 'фриланс', 
-addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую', 'еда, проезд, комуналка'),
-deposit = confirm('Есть ли у вас депозит в банке?'), 
+//addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую', 'еда, проезд, комуналка'),
+//deposit = confirm('Есть ли у вас депозит в банке?'), 
 mission = 123456,
 budgetDay, 
 period,
@@ -31,11 +31,11 @@ console.log('Ваш месячный доход: ', money);
 // Вывод массива addExpenses
 // console.log(addExpenses.split(', '));
 
+
 // 2) Добавить валидацию (проверку) на данные которые мы получаем на вопрос 'Во сколько это обойдется?’  
 let getExpensesMonth =function() {
 	let sum = 0,
-	checkSum;
-
+	    checkSum;
 	for(let i = 0; i < 2; i++){
 		if(i === 0){
 			exprenses1 = prompt('Какие обязательные ежемесячные расходы у вас есть?', ' Люблю потусоваться, знаете...');
@@ -48,9 +48,9 @@ let getExpensesMonth =function() {
 		}while(isNaN(checkSum) || checkSum === 0 || checkSum === null);
 		sum += checkSum; 
 	}
+
 	return sum;
 };
-getExpensesMonth();
 let expensesAmount = getExpensesMonth();
 console.log('Обязательные ежемесячные расходы: ', expensesAmount);
 
@@ -60,7 +60,7 @@ let getCleanMoney = function() {
 };
 getCleanMoney();
 let cleanMoney = getCleanMoney();
-console.log(' Выш чистый доход: ', cleanMoney);
+console.log('Выш чистый доход: ', cleanMoney);
 
 
 // 3) Если getTargetMonth возвращает нам отрицательное значение то вместо “Цель будет достигнута”, необходимо выводить “Цель не будет достигнута”
@@ -106,4 +106,5 @@ let getStatusIncome = function(){
 getStatusIncome();
 let statusBudgetDay = getStatusIncome();
 console.log('Ваш дневной доход: ', budgetDay);
+console.log('А точнее: ', Math.floor(budgetDay));
 console.log('Статус дневного дохода: ', statusBudgetDay);
