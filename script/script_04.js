@@ -1,6 +1,6 @@
 'use strict';
 
-let money = +prompt('Ваш месячный доход: ', '5432'),                                     
+let money = +prompt('Ваш месячный доход: ', 5432),                                     
 inCome = 'фриланс', 
 addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую', 'еда, проезд, комуналка'),
 deposit = confirm('Есть ли у вас депозит в банке?'), 
@@ -41,7 +41,7 @@ let getTargetMonth = function() {
 };
 period = getTargetMonth();
 console.log('Сумму в: ' + mission + ' - Вы накопите за ' + Math.floor(period) + ' месяцев');
- 
+
 let getBudgetDay = function() {
 	return accumulatedMonth / 30;
 };
