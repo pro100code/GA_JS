@@ -9,9 +9,9 @@ mission = 100000,
 period = 12;
 
 // 2) -Вывести в консоль тип данных значений переменных money, income, deposit
-console.log(money, '-тип данных значения money: ', typeof money);                  
-console.log(income, '-тип данных значения income: ', typeof income);
-console.log(deposit, '-тип данных значения deposit: ', typeof deposit);
+console.log(money + ' -тип данных значения money: ' + typeof money);                  
+console.log(income + ' -тип данных значения income: ' + typeof income);
+console.log(deposit + ' -тип данных значения deposit: ' + typeof deposit);
 
 // 2) - Вывести в консоль длину строки income
 console.log('Длина строки income: ', income.length);
