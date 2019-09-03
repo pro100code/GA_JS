@@ -25,18 +25,15 @@ exprensesMonth2 = prompt('Какие обязательные ежемесячн
 exprenses2 = +prompt('Во сколько это обойдется?', 567);
 // 6) Вычислить доход за месяц, учитывая обязательные расходы, сохранить в переменную budgetMonth и вывести результат в консоль
 
-let budgetMonth = money - (exprenses1 + exprenses1);
+// 8) Поправить budgetDay учитывая бюджет на месяц, а не месячный доход. Вывести в консоль  округлив в меньшую сторону (методы объекта Math в помощь)
+let budgetMonth = money - (exprenses1 + exprenses1),
+    budgetDay = money / 30;
 console.log('Чистый доход за месяц: ' + budgetMonth);
+console.log('Чистый даход за день: ' + Math.floor(budgetDay));
 
 // 7) Зная budgetMonth, посчитать за сколько месяцев будет достигнута цель mission, вывести в консоль, округляя в большую сторону
 period = mission / budgetMonth;
 console.log('Сумму в: ' + mission + ' - Вы накопите за ' + Math.ceil(period) + ' месяцев');
-
-
-// 8) Поправить budgetDay учитывая бюджет на месяц, а не месячный доход. Вывести в консоль  округлив в меньшую сторону (методы объекта Math в помощь)
-let budgetDay = money / 30;
-console.log('Даход за день: ' + Math.floor(budgetDay));
-
 
 // 9) Написать конструкцию условий
 if(budgetDay >= 800) {
