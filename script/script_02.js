@@ -21,7 +21,7 @@ console.log('Цель заработать ' + mission + ' долларов');
 console.log('Период ' + period + ' месяцев');
 
 // 2) -Привести строку addExpenses к нижнему регистру и разбить строку на массив, вывести массив в консоль
-console.log(addExpenses.toLowerCase().split(', '));
+console.log('Дополнительныe расходы: ', addExpenses.toLowerCase().split(', '));
 
 // 2)-Объявить переменную budgetDay и присвоить дневной бюджет(доход за месяц / 30), вывести в консоль и остаток 
 let budgetDay = money / 30;                                        //дневной бюджет
