@@ -13,7 +13,7 @@ exprenses2;
 // 1) Переписать функцию start циклом do while
 let start = function() {
 	do{ 
-		money = prompt('Ваш месячный доход? ', 5432);
+		money = +prompt('Ваш месячный доход? ', 5432);
 	}while(isNaN(money) || money === '' || money === null || money < -money);
 };
 start();
@@ -47,14 +47,13 @@ let getExpensesMonth =function() {
 	return sum;
 };
 let expensesMonth = getExpensesMonth();
-console.log('Cумма всех расходов за месяц: ' + expensesMonth);
+
 
 
 let getAccumulatedMonth = function(){
 	return money - expensesMonth;
 };
 let accumulatedMonth = getAccumulatedMonth();
-console.log('Чистый доход за месяц: ' + accumulatedMonth);
 
 
 // 3) Если getTargetMonth возвращает нам отрицательное значение, то вместо “Цель будет достигнута” необходимо выводить “Цель не будет достигнута”
@@ -69,13 +68,12 @@ let getTargetMonth = function() {
 };
 let statusPeriod = getTargetMonth();
 console.log(statusPeriod);
-console.log('Сумму в: ' + mission + ' - Вы накопите за ' + Math.floor(period) + ' месяцев');
+console.log('Cрок достижения цели (в месяцах:) ' + Math.floor(period));
 
 let getBudgetDay = function() {
 	return accumulatedMonth / 30;
 };
 let budgetDay = getBudgetDay();
-
 
 
 // 4) Если budgetDay отрицательное значение, то вместо уровня дохода пусть выводится сообщение “Что то пошло не так”
