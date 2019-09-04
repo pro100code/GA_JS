@@ -8,7 +8,7 @@ let start = function() {
 	}while(isNaN(money) || money === '' || money === null || money <= 0);
 };
 start();
-console.log('Ваш месячный доход: ', money);
+console.log('Ваш месячный доход: ' + money);
 
 let inCome = 'фриланс', 
 addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую', 'еда, проезд, комуналка'),
@@ -17,11 +17,6 @@ mission = 123456,
 period,
 exprenses1,
 exprenses2;
-
-
-// 1) Переписать функцию start циклом do while
-
-
 
 let showTypeof = function(data) {
 	console.log(data, typeof(data));
