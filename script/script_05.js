@@ -62,13 +62,14 @@ let getTargetMonth = function() {
 	if(period > 0) {
 		return ('Цель будет достигнута!');
 
-	} else if(period < -period){
+	} else if(period < 0){
 		return ('Цель не будет достигнута!');
 	}
 };
 let statusPeriod = getTargetMonth();
 console.log(statusPeriod);
 console.log('Cрок достижения цели (в месяцах:) ' + Math.floor(period));
+
 
 let getBudgetDay = function() {
 	return accumulatedMonth / 30;
