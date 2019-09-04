@@ -24,7 +24,7 @@ exprenses2;
 
 
 let showTypeof = function(data) {
-	console.log('Основные данные: ', data, typeof(data));
+	console.log(data, typeof(data));
 };
 showTypeof(money);
 showTypeof(inCome);
