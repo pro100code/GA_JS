@@ -1,7 +1,16 @@
 'use strict';
 
-let money,                                     
-inCome = 'фриланс', 
+let money;
+
+let start = function() {
+	do{ 
+		money = +prompt('Ваш месячный доход? ', 5432);
+	}while(isNaN(money) || money === '' || money === null || money <= 0);
+};
+start();
+console.log('Ваш месячный доход: ', money);
+
+let inCome = 'фриланс', 
 addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую', 'еда, проезд, комуналка'),
 deposit = confirm('Есть ли у вас депозит в банке?'), 
 mission = 123456, 
@@ -11,13 +20,7 @@ exprenses2;
 
 
 // 1) Переписать функцию start циклом do while
-let start = function() {
-	do{ 
-		money = +prompt('Ваш месячный доход? ', 5432);
-	}while(isNaN(money) || money === '' || money === null || money < -money);
-};
-start();
-console.log('Ваш месячный доход: ', money);
+
 
 
 let showTypeof = function(data) {
