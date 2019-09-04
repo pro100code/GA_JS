@@ -54,7 +54,7 @@ let getAccumulatedMonth = function(){
 	return money - expensesMonth;
 };
 let accumulatedMonth = getAccumulatedMonth();
-console.log('Накопления за месяц: ' + accumulatedMonth);
+console.log('Чистый доход за месяц: ' + accumulatedMonth);
 
 
 // 3) Если getTargetMonth возвращает нам отрицательное значение, то вместо “Цель будет достигнута” необходимо выводить “Цель не будет достигнута”
@@ -69,13 +69,13 @@ let getTargetMonth = function() {
 };
 let statusPeriod = getTargetMonth();
 console.log(statusPeriod);
-
+console.log('Сумму в: ' + mission + ' - Вы накопите за ' + Math.floor(period) + ' месяцев');
 
 let getBudgetDay = function() {
 	return accumulatedMonth / 30;
 };
 let budgetDay = getBudgetDay();
-console.log('Даход за день: ' + Math.ceil(budgetDay));
+
 
 
 // 4) Если budgetDay отрицательное значение, то вместо уровня дохода пусть выводится сообщение “Что то пошло не так”
@@ -86,11 +86,9 @@ let getStatusIncome = function(){
 		return ('Средний уровень дохода');
 	} else if(budgetDay >= 0 && budgetDay < 300) {
 		return ('Низкий уровень дохода');
-	}  else if (budgetDay < -budgetDay) {
+	}  else if (budgetDay < 0) {
 		return ('Что-то пошло не так');
-	} else {
-		return ('Что-то пошло не так');
-	}
+	} 
 };
 getStatusIncome();
 console.log(getStatusIncome());
