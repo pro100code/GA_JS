@@ -25,7 +25,7 @@ let getExpensesMonth =function() {
 	return exprenses1 + exprenses2;
 };
 let expensesMonth = getExpensesMonth();
-console.log('Cумма всех расходов за месяц: ' + expensesMonth);
+
 
 // 1) — функция getAccumulatedMonth возвращает Накопления за месяц (Доходы минус расходы)
 let getAccumulatedMonth = function(){
@@ -33,7 +33,7 @@ let getAccumulatedMonth = function(){
 };
 // Результат сохранить в переменную accumulatedMonth
 let accumulatedMonth = getAccumulatedMonth();
-console.log('Накопления за месяц: ' + accumulatedMonth);
+console.log('Чистый доход за месяц: ' + accumulatedMonth);
 
 // 1) — функция getTargetMonth подсчитывает за какой период будет достигнута цель, зная результат месячного накопления 
 let getTargetMonth = function() {
@@ -46,7 +46,7 @@ let getBudgetDay = function() {
 	return accumulatedMonth / 30;
 };
 let budgetDay = getBudgetDay();
-console.log('Даход за день: ' + Math.ceil(budgetDay));
+
 
 // 2) — Оставить функцию getStatusIncome, которые написали в уроке
 let getStatusIncome = function(){
