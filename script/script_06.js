@@ -59,7 +59,6 @@ getTargetMonth: function() {
 	appData.period = appData.mission / appData.budgetMonth;
 	if(appData.period > 0) {
 		return ('Цель будет достигнута!');
-
 	} else if(appData.period < 0){
 		return ('Цель не будет достигнута!');
 	}
@@ -85,7 +84,7 @@ appData.getTargetMonth();
 appData.getStatusIncome();
 
 console.log('Расходы за месяц: ' + appData.budgetMonth);
-console.log('Cрок достижения цели (в месяцах:) ' + appData.budgetDay);
+console.log('Cрок достижения цели (в месяцах:) ' + appData.period);
 console.log('Уровень дохода: ' + appData.getStatusIncome());
 
 for(let key in appData){
