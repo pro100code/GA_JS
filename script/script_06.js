@@ -83,7 +83,7 @@ appData.getBudget();
 appData.getTargetMonth();
 appData.getStatusIncome();
 
-console.log('Расходы за месяц: ' + appData.budgetMonth);
+console.log('Расходы за месяц: ' + appData.expensesMonth);
 console.log('Cрок достижения цели (в месяцах:) ' + appData.period);
 console.log('Уровень дохода: ' + appData.getStatusIncome());
 
