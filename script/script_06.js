@@ -16,7 +16,10 @@ let appData = {
     mission: 100000,
     period: 12,
     expenses: {},         // доп. расходы
-
+    budget: money,
+    budgetDay: 0,
+    budgetMonth: 0,
+    expensesMonth: 0,
     asking: function(){   
        let addExpenses;
        do{
@@ -40,24 +43,21 @@ let appData = {
            appData.expenses[expense] = whatExpense;         
         }
   },
-  budget: money,
-  budgetDay: 0,
-  budgetMonth: 0,
-  expensesMonth: 0,
+  
 
 getExpensesMonth: function() {
-    for(let key in appData.expenses){
-      appData.budgetMonth += appData.expenses[key];
+    for(let key in appData.expenses){ 
+      appData.expensesMonth   += appData.expenses[key];
     } 
 },
 
 getBudget: function(){
-  appData.expensesMonth = appData.budget - appData.budgetMonth;
-  appData.budgetDay = Math.floor(appData.budget / 30);  
+  appData.budgetMonth = appData.budget - appData.expensesMonth;
+  appData.budgetDay = Math.floor(appData.budgetMonth / 30);  
 },
 
 getTargetMonth: function() {
-	appData.period = appData.mission / appData.expensesMonth;
+	appData.period = appData.mission / appData.budgetMonth;
 	if(appData.period > 0) {
 		return ('Цель будет достигнута!');
 
