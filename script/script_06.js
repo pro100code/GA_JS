@@ -82,4 +82,7 @@ console.log('Расходы за месяц: ' + appData.budgetMonth);
 console.log('Cрок достижения цели (в месяцах:) ' + Math.floor(appData.period));
 console.log('Уровень дохода: ' + appData.getStatusIncome());
 
-
+for(let key in appData){
+  console.log('Наша программа включает в себя данные: ' + key + '', appData[key]);
+}
+"Наша программа включает в себя данные: "
