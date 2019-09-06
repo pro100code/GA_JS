@@ -12,37 +12,60 @@ start();
 let appData = {
   income: {},        // доп. доходы
   addIcome: [],      // перечесление доп. доходов 
-  expenses: {},      // доп. расходы
+  
   AddExpenses: [],   // массив с возможными расходами
   deposit: false,
   mission: 100000,
   period: 12,
+
+
+
+  expenses: {},      // доп. расходы
   asking: function(){
-   let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую', 'еда, проезд, комуналка');
-       appData.addExpenses = addExpenses.toLowerCase().split(', ');
-       appData.deposit = confirm('Есть ли у вас депозит в банке?');
+    let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую', 'еда, проезд, комуналка');
+        appData.addExpenses = addExpenses.toLowerCase().split(', ');
+        appData.deposit = confirm('Есть ли у вас депозит в банке?');
+      let  expense,
+           whatExpense;    
+       for(let i = 0; i < 2; i++){
+            do{
+              expense = prompt('Какие обязательные ежемесячные расходы у вас есть?', 'Расход' + (i+1));
+            }while(typeof(expense) === 'number' || expense === '' || expense === null);  
+          
+          do{
+            whatExpense = prompt('Во сколько это обойдется?', 555);
+          }while(isNaN(whatExpense) || whatExpense === 0 || whatExpense === null);
+            appData.expenses[expense] = +whatExpense;         
+        }
   },
   budget: money,
   budgetDay: 0,
   budgetMonth: 0,
   expensesMonth: 0
 };
-console.log(appData);
+ appData.asking();
+console.log('appData.expenses', appData.expenses);
+
  
 
+
+
+
+
+
 let
-exprenses1,
-exprenses2;
+expenses1,
+expenses2;
 
 appData.getExpensesMonth = function() {
 	let sum = 0,
 	checkSum;
 	for(let i = 0; i < 2; i++){
 		if(i === 0){
-			exprenses1 = prompt('Какие обязательные ежемесячные расходы у вас есть?', ' Люблю потусоваться, знаете...');
+			expenses1 = prompt('Какие обязательные ежемесячные расходы у вас есть?', 'маршрутка');
 		}
 		if(i === 1){
-			exprenses2 = prompt('Какие обязательные ежемесячные расходы у вас есть?', ' Вечер пятницы...');
+			expenses2 = prompt('Какие обязательные ежемесячные расходы у вас есть?', 'развлечения');
 		}
 		do{ 
 			checkSum = +prompt('Во сколько это обойдется?', 555);
