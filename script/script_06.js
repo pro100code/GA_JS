@@ -17,20 +17,26 @@ let appData = {
     period: 12,
     expenses: {},         // доп. расходы
 
-    asking: function(){
-      let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую', 'еда, проезд, комуналка');
-          appData.addExpenses = addExpenses.toLowerCase().split(', ');
+    asking: function(){   
+       let addExpenses;
+       do{
+         addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую', ' еда, вечеринки');
+       }while(typeof(addExpenses) === 'number' || addExpenses === '');
+       if (addExpenses === true) {
+         appData.addExpenses = addExpenses.toLowerCase().split(', ');
+       }
           appData.deposit = confirm('Есть ли у вас депозит в банке?');
+
       let  expense,
            whatExpense;    
        for(let i = 0; i < 2; i++){
             do{
               expense = prompt('Какие обязательные ежемесячные расходы у вас есть?', 'Расход' + (i+1));
-            }while(typeof(expense) === 'number' || expense === '' || expense === null);  
+            }while(typeof(expense) === 'number' || expense === '' || expense === null || expense === '');  
           
           do{
             whatExpense = +prompt('Во сколько это обойдется?', 1000);
-          }while(isNaN(whatExpense) || whatExpense === 0 || whatExpense === null);
+          }while(isNaN(whatExpense) || whatExpense === 0 || whatExpense === null || whatExpense === '');
            appData.expenses[expense] = whatExpense;         
         }
   },
@@ -73,8 +79,6 @@ getStatusIncome: function(){
 }
 };
 
-
-
 appData.asking();
 appData.getExpensesMonth();
 appData.getBudget();
@@ -86,5 +90,5 @@ console.log('Cрок достижения цели (в месяцах:) ' + appD
 console.log('Уровень дохода: ' + appData.getStatusIncome());
 
 for(let key in appData){
-  console.log('Наша программа включает в себя данные: ' + key, appData[key]);
+  console.log('Наша программа включает в себя данные: ' + key + '', appData[key]);
 }
