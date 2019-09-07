@@ -30,7 +30,7 @@ let appData = {
           itemIncome = prompt('Какой у вас дополнительный заработок?', 'Торговля');
         }while(!isNaN(itemIncome) || itemIncome === '' || itemIncome === null); 
         do{
-          cashIncome = +prompt('Сколько в месяц вы на этом зарабатываете?', 2500);
+          cashIncome = prompt('Сколько в месяц вы на этом зарабатываете?', 2500);
         } while(isNaN(cashIncome) || cashIncome === '' || cashIncome === null || cashIncome < 0);
             appData.income[itemIncome] = cashIncome;
           }
@@ -92,11 +92,11 @@ getStatusIncome: function(){
 getInfoDeposit: function(){
   if(appData.deposit){
     do{
-      appData.moneyDeposit = +prompt('Какая сумма вашего депозита?', 13000);
+      appData.moneyDeposit = prompt('Какая сумма вашего депозита?', 13000);
     } while(isNaN(appData.moneyDeposit) || appData.moneyDeposit === '' || appData.moneyDeposit === null || appData.moneyDeposit <= 0);
  
     do{
-      appData.percentDeposit = +prompt('Какой годовой процент вашего депозита?', 25);
+      appData.percentDeposit = prompt('Какой годовой процент вашего депозита?', 25);
     } while(isNaN(appData.percentDeposit) || appData.percentDeposit === '' || appData.percentDeposit === null || appData.percentDeposit === 0);
   }
 },
