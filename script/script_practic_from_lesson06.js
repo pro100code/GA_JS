@@ -22,6 +22,9 @@ let appData = {
     budgetDay: 0,
     budgetMonth: 0,
     expensesMonth: 0,
+
+    inComeMonth: 0,
+
     asking: function(){       
       if(confirm('У вас есть дополнительный источник заработока?')){
         let itemIncome,
@@ -63,13 +66,24 @@ getExpensesMonth: function() {
     } 
 },
 
+
+
+getInComeMonth: function(){
+  for(let key in appData.income){ 
+    appData.inComeMonth += appData.income[key];
+  }
+},
+
+
+
+
 getBudget: function(){
-  appData.budgetMonth = appData.budget - appData.expensesMonth;
-  appData.budgetDay = Math.floor(appData.budgetMonth / 30);  
+  appData.budgetMonth = appData.budget - appData.expensesMonth + appData.inComeMonth;
+  appData.budgetDay = Math.ceil(appData.budgetMonth / 30);  
 },
 
 getTargetMonth: function() {
-	appData.period = appData.mission / appData.budgetMonth;
+	appData.period = Math.ceil(appData.mission / appData.budgetMonth);
 	if(appData.period > 0) {
 		return ('Цель будет достигнута!');
 	} else if(appData.period < 0){
@@ -107,6 +121,7 @@ calcSavedMoney: function(){
 };
 
 appData.asking();
+appData.getInComeMonth();
 appData.getExpensesMonth();
 appData.getBudget();
 appData.getTargetMonth();
