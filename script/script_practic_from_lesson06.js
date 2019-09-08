@@ -4,7 +4,7 @@ let money,
     start = function() {
 	do{ 
 		money = +prompt('Ваш месячный доход? ', 10000);
-	}while(isNaN(money) || money === '' || money === null || money <= 0);
+	}while(isNaN(money) || money <= 0);
 };
 start();
 
@@ -30,8 +30,8 @@ let appData = {
           itemIncome = prompt('Какой у вас дополнительный заработок?', 'Торговля');
         }while(!isNaN(itemIncome) || itemIncome === '' || itemIncome === null); 
         do{
-          cashIncome = prompt('Сколько в месяц вы на этом зарабатываете?', 2500);
-        } while(isNaN(cashIncome) || cashIncome === '' || cashIncome === null || cashIncome < 0);
+          cashIncome = +prompt('Сколько в месяц вы на этом зарабатываете?', 2500);
+        } while(isNaN(cashIncome) || cashIncome <= 0);
             appData.income[itemIncome] = cashIncome;
           }
 
@@ -52,14 +52,14 @@ let appData = {
           
           do{
             whatExpense = +prompt('Во сколько это обойдется?', 1000);
-          }while(isNaN(whatExpense) || whatExpense === 0 || whatExpense === null || whatExpense === '');
+          }while(isNaN(whatExpense) || whatExpense === 0);
            appData.expenses[expense] = whatExpense;         
         }
   },
   
 getExpensesMonth: function() {
     for(let key in appData.expenses){ 
-      appData.expensesMonth   += appData.expenses[key];
+      appData.expensesMonth += appData.expenses[key];
     } 
 },
 
@@ -92,12 +92,12 @@ getStatusIncome: function(){
 getInfoDeposit: function(){
   if(appData.deposit){
     do{
-      appData.moneyDeposit = prompt('Какая сумма вашего депозита?', 13000);
-    } while(isNaN(appData.moneyDeposit) || appData.moneyDeposit === '' || appData.moneyDeposit === null || appData.moneyDeposit <= 0);
+      appData.moneyDeposit = +prompt('Какая сумма вашего депозита?', 13000);
+    } while(isNaN(appData.moneyDeposit) || appData.moneyDeposit <= 0);
  
     do{
-      appData.percentDeposit = prompt('Какой годовой процент вашего депозита?', 25);
-    } while(isNaN(appData.percentDeposit) || appData.percentDeposit === '' || appData.percentDeposit === null || appData.percentDeposit === 0);
+      appData.percentDeposit = +prompt('Какой годовой процент вашего депозита?', 25);
+    } while(isNaN(appData.percentDeposit) || appData.percentDeposit <= 0);
   }
 },
 
