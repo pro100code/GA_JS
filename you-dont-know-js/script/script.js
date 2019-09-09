@@ -9,9 +9,6 @@ let books = document.querySelectorAll('.books'),
     callRestoreChapter = document.querySelectorAll('ul'),
     callRestoreChapterElem = document.querySelectorAll('li');
 
-console.log(book);
-console.log(callRestoreChapter);
-console.log(callRestoreChapterElem);
 
 // выравнял главы по порядку
 let getReplaceBooks = function(){   
