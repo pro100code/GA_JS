@@ -68,7 +68,7 @@ let getReplaceImg = function(){
     let  book = document.querySelectorAll('ul'),
          charper = document.querySelectorAll('li'),
          clone  = charper[56].cloneNode(true);
-         clone.textContent = 'Глава 8: За пределами ES6” и поставить её в правильное место';
+         clone.textContent = 'Глава 8: За пределами ES6';
          book[5].appendChild(clone);
          book[5].insertBefore(charper[55], clone); 
          book[5].insertBefore(charper[56], null);          
