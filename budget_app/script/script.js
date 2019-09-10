@@ -10,22 +10,22 @@ let btnCalculate = document.getElementById('start'),
     incomeItemFirst = inputAddIncome[0],
     incomeItemSecond = inputAddIncome[1],
     
-    budgetMonthValue = document.getElementsByClassName('.budget_month-value')[0],
-    budgetDayValue = document.getElementsByClassName('.budget_day-value')[0],
-    expensesMonthValue = document.getElementsByClassName('.expenses_month-value')[0],
-    additionalIncomeValue = document.getElementsByClassName('.additional_income-value')[0],
-    additionalExpensesValue = document.getElementsByClassName('.additional_expenses-value')[0],
-    incomePeriodValue = document.getElementsByClassName('.income_period-value')[0],
-    targetMonthValue = document.getElementsByClassName('.target_month-value')[0],
+    budgetMonthValue = document.querySelector('.budget_month-value'),
+    budgetDayValue = document.querySelector('.budget_day-value'),
+    expensesMonthValue = document.querySelector('.expenses_month-value'),
+    additionalIncomeValue = document.querySelector('.additional_income-value'),
+    additionalExpensesValue = document.querySelector('.additional_expenses-value'),
+    incomePeriodValue = document.querySelector('.income_period-value'),
+    targetMonthValue = document.querySelector('.target_month-value'),
     
     salaryAmount = document.querySelector('.salary-amount'),
-    incomeTitle = document.querySelector('.income-title'),
+    incomeTitle = document.querySelectorAll('.income-title')[1],
     incomeAmount = document.querySelector('.income-amount'),
-    // expenses-title
+    
     expensesTitle = document.querySelectorAll('.expenses-title')[1],
     expensesAmount = document.querySelector('.expenses-amount'),
     additionalExpensesItem = document.querySelector('.additional_expenses-item'),
-    // target-amount
+    
     targetAmount = document.querySelector('.target-amount'),
 
     depositAmount = document.querySelector('.deposit-amount'),
