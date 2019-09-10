@@ -32,7 +32,7 @@ let btnCalculate = document.getElementById('start'),
     depositPercent = document.querySelector('.deposit-percent'),
     periodSelect = document.querySelector('.period-select');
 
-console.log(btnCalculate, cansel, btnPlus, expensesPlus, depositCheck, inputAddIncome, incomeItemFirst, 
+  console.log(btnCalculate, cansel, btnPlus, expensesPlus, depositCheck, inputAddIncome, incomeItemFirst, 
             incomeItemSecond, budgetMonthValue, budgetDayValue, expensesMonthValue, additionalIncomeValue, 
             additionalExpensesValue, incomePeriodValue, targetMonthValue, salaryAmount, incomeTitle, incomeAmount, 
             expensesTitle, expensesAmount, additionalExpensesItem, targetAmount, depositAmount, depositPercent, periodSelect);
