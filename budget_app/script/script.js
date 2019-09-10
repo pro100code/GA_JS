@@ -1,7 +1,7 @@
 'use srtict';
 
 let btnCalculate = document.getElementById('start'),
-    cansel = document.getElementById('cansel'),
+    canсel = document.getElementById('canсel'),
     btnPlus = document.getElementsByTagName('button'),
     incomePlus = btnPlus[0],
     expensesPlus = btnPlus[1],
@@ -34,7 +34,7 @@ let btnCalculate = document.getElementById('start'),
 
      
   
-  console.log(btnCalculate, cansel, btnPlus, expensesPlus, depositCheck, inputAddIncome, incomeItemFirst, 
+  console.log(btnCalculate, canсel, btnPlus, expensesPlus, depositCheck, inputAddIncome, incomeItemFirst, 
             incomeItemSecond, budgetMonthValue, budgetDayValue, expensesMonthValue, additionalIncomeValue, 
             additionalExpensesValue, incomePeriodValue, targetMonthValue, salaryAmount, incomeTitle, incomeAmount, 
             expensesTitle, expensesAmount, additionalExpensesItem, targetAmount, depositAmount, depositPercent, periodSelect);
