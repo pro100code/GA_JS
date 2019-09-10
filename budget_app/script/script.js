@@ -38,7 +38,7 @@ console.log(btnCalculate, cansel, btnPlus, expensesPlus, depositCheck, inputAddI
             expensesTitle, expensesAmount, additionalExpensesItem, targetAmount, depositAmount, depositPercent, periodSelect);
  
 
-            console.log(document.querySelectorAll('.expenses-title'));
+            
 
 
 
