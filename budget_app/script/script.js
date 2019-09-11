@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function(){ 
+
 'use srtict';
 
 let start = document.getElementById('start'),
@@ -52,8 +53,7 @@ let appData = {
             return;
         }
         appData.budget = +salaryAmount.value;
-        
-        
+            
         appData.getExpenses();
         appData.getExpensesMonth();
         appData.getAddExpenses();
@@ -62,7 +62,8 @@ let appData = {
         appData.getaddIncome();
         appData.getBudget();
         appData.getTargetMonth();
-        //appData.getPeriodSelect();
+        appData.getPeriodSelect();
+
         appData.showResult();
     },
 
@@ -73,8 +74,8 @@ showResult: function(){
     additionalExpensesValue.value = appData.AddExpenses.join(',');                   // разбить массив на строки 
     additionalIncomeValue.value = appData.addIncome.join(',');
     targetMonthValue.value = Math.floor(appData.getTargetMonth());
-    incomePeriodValue.value = +appData.calcPeriod();
-    periodSelect.value = appData.getPeriodSelect(); 
+    incomePeriodValue.value = appData.calcPeriod();
+    
 },
 
 addExpensesBlock: function(){ 
@@ -162,10 +163,9 @@ calcPeriod: function(){
   return Math.ceil(appData.budgetMonth * periodSelect.value);
 },
 
-
 getPeriodSelect: function(){
   periodAmount.textContent = periodSelect.value;
-   
+  incomePeriodValue.value = appData.calcPeriod();
 },
 };
 
@@ -174,47 +174,6 @@ start.addEventListener('click', appData.start);
 expensesPlus.addEventListener('click', appData.addExpensesBlock);
 incomePlus.addEventListener('click', appData.addIncomeBlock);
 periodSelect.addEventListener('input', appData.getPeriodSelect);
-
-
-
-
-
-// getStatusIncome: function(){
-// 	if(appData.budgetDay > 800) {
-// 		return ('Высокий уровень дохода');
-// 	} else if(appData.budgetDay >= 300 && appData.budgetDay < 800) {
-// 		return ('Средний уровень дохода');
-// 	} else if(appData.budgetDay >= 0 && appData.budgetDay < 300) {
-// 		return ('Низкий уровень дохода');
-// 	}  else if (appData.budgetDay < 0) {
-// 		return ('Что-то пошло не так');
-// 	} 
-// },
-
-// getInfoDeposit: function(){
-//   if(appData.deposit){
-//     do{
-//       appData.moneyDeposit = +prompt('Какая сумма вашего депозита?', 13000);
-//     } while(isNaN(appData.moneyDeposit) || appData.moneyDeposit <= 0);
- 
-//     do{
-//       appData.percentDeposit = +prompt('Какой годовой процент вашего депозита?', 25);
-//     } while(isNaN(appData.percentDeposit) || appData.percentDeposit <= 0);
-//   }
-// },
-
-
-
-//  getPeriodMonths: function(){
-//   let startNew = document.getElementById('start');
-//   startNew.addEventListener('click', appData.calcPeriod);
-//  }
-
-
-
-
-
-
 });
 
 
