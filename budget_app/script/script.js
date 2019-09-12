@@ -31,7 +31,9 @@ let start = document.getElementById('start'),
     depositPercent = document.querySelector('.deposit-percent'),
     periodSelect = document.querySelector('.period-select'),
     periodAmount = document.querySelector('.period-amount'),
-    incomeItems = document.querySelectorAll('.income-items');
+    incomeItems = document.querySelectorAll('.income-items'),
+    inputTypeTextName = document.querySelectorAll('input[placeholder="Наименование"]'),
+    inputTypeTextSum = document.querySelectorAll('input[placeholder="Сумма"]');
 
 let appData = {
     income: {},
@@ -48,13 +50,10 @@ let appData = {
     expensesMonth: 0,
     mission: 0,
     start: function(){
-      if(salaryAmount.value.trim() === ''){
-        alert('ugp');
-        start.disabled = true;
-      } else {
-        start.disabled = false;
-      
-         
+      if (isNaN(salaryAmount.value) || salaryAmount.value.trim() === ''){
+        alert(' Не верно заполнено поле "Месячный доход!"');
+				return;
+			}
         appData.budget = +salaryAmount.value;
   
         appData.getExpenses();
@@ -67,8 +66,9 @@ let appData = {
         appData.getTargetMonth();
         appData.getPeriodSelect();
 
-        appData.showResult();
-      }
+        appData.getStartNone();
+
+        appData.showResult();  
     },
 
 showResult: function(){  
@@ -78,8 +78,7 @@ showResult: function(){
     additionalExpensesValue.value = appData.AddExpenses.join(',');                   // разбить массив на строки 
     additionalIncomeValue.value = appData.addIncome.join(',');
     targetMonthValue.value = Math.floor(appData.getTargetMonth());
-    incomePeriodValue.value = appData.calcPeriod();
-    
+    incomePeriodValue.value = appData.calcPeriod();   
 },
 
 addExpensesBlock: function(){ 
@@ -170,15 +169,16 @@ calcPeriod: function(){
 getPeriodSelect: function(){
   periodAmount.textContent = periodSelect.value;
   incomePeriodValue.value = appData.calcPeriod();
+},
+
+getStartNone: function(){
+    inputTypeTextName = document.querySelectorAll('input[placeholder="Наименование"]');
+    inputTypeTextSum = document.querySelectorAll('input[placeholder="Сумма"]');
+      if (isNaN(inputTypeTextSum.value) || inputTypeTextSum.value.trim() === '' || !isNaN(inputTypeTextName.value) || inputTypeTextName.value.trim() === ''){
+        start.style.display = 'none';
+        cancel.style.display = 'block'; 
+      }
 }
-
-
-// disabledStart: function(){
-//   if(salaryAmount.value.trim() === ''){
-//     alert('ugp');
-//     start.style.display = 'none';
-// }
-// } 
 };
 
 
