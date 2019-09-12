@@ -189,6 +189,8 @@ getStartNone: function() {
   inputText.forEach(function(item) {
     item.setAttribute('disabled', '');
   });
+  
+  periodSelect.disabled = true; 
   start.style.display = 'none';
   cancel.style.display = 'block';
 },
