@@ -48,12 +48,15 @@ let appData = {
     expensesMonth: 0,
     mission: 0,
     start: function(){
-        if(salaryAmount.value === ''){
-            alert('Ошибка, поле "Месячный доход" должно быть заполнено!');    
-            return;
-        }
+      if(salaryAmount.value.trim() === ''){
+        alert('ugp');
+        start.disabled = true;
+      } else {
+        start.disabled = false;
+      
+         
         appData.budget = +salaryAmount.value;
-            
+  
         appData.getExpenses();
         appData.getExpensesMonth();
         appData.getAddExpenses();
@@ -65,6 +68,7 @@ let appData = {
         appData.getPeriodSelect();
 
         appData.showResult();
+      }
     },
 
 showResult: function(){  
@@ -166,7 +170,15 @@ calcPeriod: function(){
 getPeriodSelect: function(){
   periodAmount.textContent = periodSelect.value;
   incomePeriodValue.value = appData.calcPeriod();
-},
+}
+
+
+// disabledStart: function(){
+//   if(salaryAmount.value.trim() === ''){
+//     alert('ugp');
+//     start.style.display = 'none';
+// }
+// } 
 };
 
 
