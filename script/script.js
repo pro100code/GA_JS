@@ -138,7 +138,6 @@ addIncomeBlock: function(){
       }   
 },
 
-// перебор элементов expensesItems
 getIncome: function(){
   const  _this = this;
   incomeItems.forEach(function(item){   
@@ -190,7 +189,6 @@ getPeriodSelectValue: function(){
   incomePeriodValue.value = this.calcPeriod();
 },
 
-// блокировка всех input[type=text]
 getStartNone: function() {    
   let inputTextLeft = leftSide.querySelectorAll("input[type='text']");
   inputTextLeft.forEach(function(item) {
@@ -204,7 +202,6 @@ getStartNone: function() {
   start.style.display = 'none';
   cancel.style.display = 'block';
 },
-
 
 getReset: function(){
   let inputTextLeft = leftSide.querySelectorAll("input[type='text']");
@@ -227,7 +224,6 @@ getReset: function(){
     cancel.style.display = 'none';
 }
 };
-
 
 start.addEventListener('click', appData.start.bind(appData));
 cancel.addEventListener('click', appData.getReset.bind(appData));
