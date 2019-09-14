@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function(){ 
 
-'use srtict';
+'use strict';
 
 let start = document.getElementById('start'),
     cancel = document.getElementById('cancel'),
@@ -9,8 +9,6 @@ let start = document.getElementById('start'),
     expensesPlus = btnPlus[1],
     depositCheck = document.querySelector('#deposit-check'),
     additionalIncomeItems = document.querySelectorAll('.additional_income-item'),
-    additionalIncomeItemFirst = additionalIncomeItems[0],
-    additionalIncomeItemSecond = additionalIncomeItems[1],
     
     budgetMonthValue = document.querySelector('.budget_month-value'),
     budgetDayValue = document.querySelector('.budget_day-value'),
@@ -21,24 +19,17 @@ let start = document.getElementById('start'),
     targetMonthValue = document.querySelector('.target_month-value'),
     
     salaryAmount = document.querySelector('.salary-amount'),
-    incomeTitle = document.querySelector('.income-title'),
-    incomeAmount = document.querySelector('.income-amount'),
-    expensesTitleBlock = document.querySelectorAll('.expenses-title')[0],
-    expensesTitle = document.querySelectorAll('.expenses-title')[1],
     expensesItems = document.querySelectorAll('.expenses-items'),
     additionalExpensesItem = document.querySelector('.additional_expenses-item'),
     targetAmount = document.querySelector('.target-amount'),  
-    depositAmount = document.querySelector('.deposit-amount'),
-    depositPercent = document.querySelector('.deposit-percent'),
+
     periodSelect = document.querySelector('.period-select'),
     periodAmount = document.querySelector('.period-amount'),
     incomeItems = document.querySelectorAll('.income-items'),
     
     leftSide = document.querySelector('.data'),
-    rightSide = document.querySelector('.result'), 
-    inputTypeTextName = document.querySelectorAll('input[placeholder="Наименование"]'),
-    inputTypeTextSum = document.querySelectorAll('input[placeholder="Сумма"]'),
-    inputTypeText = document.querySelectorAll("input[type='text']"); 
+    rightSide = document.querySelector('.result'); 
+    
 
 let appData = {
     income: {},
@@ -92,8 +83,9 @@ addExpensesBlock: function(){
         cloneExpensesAmount.value = '';
         expensesItems[0].parentNode.insertBefore(cloneExpensesItems, expensesPlus);  
         expensesItems = document.querySelectorAll('.expenses-items');
-        if(expensesItems.length === 3){                                              
-           expensesPlus.disabled = true;  
+        if(expensesItems.length === 3){
+           expensesPlus.style.display = 'none';                               
+           //expensesPlus.disabled = true;   деактивация кнопки
         }
 },
 
@@ -134,8 +126,9 @@ addIncomeBlock: function(){
 			cloneIncomeAmount.value = '';                         
       incomeItems[0].parentNode.insertBefore(cloneIncomeItems, incomePlus);  
       incomeItems = document.querySelectorAll('.income-items');
-      if(incomeItems.length === 3){                                              
-          incomePlus.disabled = true;  
+      if(incomeItems.length === 3){ 
+         incomePlus.style.display = 'none';                                      
+          //incomePlus.disabled = true;  
       }   
 },
 
@@ -216,14 +209,41 @@ getReset: function(){
     item.disabled = false;
   });
 
-    incomePlus.disabled = false;
-    expensesPlus.disabled = false;
+    expensesPlus.disabled = false; 
+    expensesPlus.style.display = 'inline-block';
+    incomePlus.disabled = false; 
+    incomePlus.style.display = 'inline-block';
     depositCheck.disabled = false;
     start.style.display = 'block';
     cancel.style.display = 'none';
+    periodSelect.value = '1';
+    periodAmount.textContent = '1';
 
+    this.deposit = false;
+    this.moneyDeposit = 0;
+    this.percentDeposit = 0;        
+    this.budget = 0;
+    this.budgetDay = 0;
+    this.budgetMonth = 0;
+    this.expensesMonth = 0;
+    this.mission = 0;
 
-  
+    for(let key in this.income){ // удаление свойств обьекта
+      delete this.income.key; 
+    }
+    for(let key in this.expenses){ // удаление свойств обьекта
+      delete this.expenses.key; 
+    }
+    
+   const _this = this;
+   this.addIncome.forEach(function(item){
+        delete this.addIncome[item];
+   });
+
+   this.AddExpenses.forEach(function(item){
+    delete this.AddExpenses[item];
+});      
+   
     incomeItems = document.querySelectorAll('.income-items');
       for(let i = 1; i <= incomeItems.length - 1; i++){
         incomeItems[i].remove();
@@ -235,7 +255,6 @@ getReset: function(){
       }   
 }
 };
-
 
 start.addEventListener('click', appData.start.bind(appData));
 cancel.addEventListener('click', appData.getReset.bind(appData));
