@@ -23,6 +23,7 @@ let start = document.getElementById('start'),
     salaryAmount = document.querySelector('.salary-amount'),
     incomeTitle = document.querySelector('.income-title'),
     incomeAmount = document.querySelector('.income-amount'),
+    expensesTitleBlock = document.querySelectorAll('.expenses-title')[0],
     expensesTitle = document.querySelectorAll('.expenses-title')[1],
     expensesItems = document.querySelectorAll('.expenses-items'),
     additionalExpensesItem = document.querySelector('.additional_expenses-item'),
@@ -55,7 +56,7 @@ let appData = {
     mission: 0,
     start: function(){
       if (isNaN(salaryAmount.value) || salaryAmount.value.trim() === ''){
-        alert(' Не верно заполнено поле "Месячный доход!"');
+        //alert(' Не верно заполнено поле "Месячный доход!"');
 				return;
 			}
         this.budget = +salaryAmount.value;
@@ -195,7 +196,7 @@ getStartNone: function() {
     item.setAttribute('disabled', '');
   });
 
-  periodSelect.disabled = true;
+  
   incomePlus.disabled = true;
   expensesPlus.disabled = true;
   depositCheck.disabled = true;
@@ -209,21 +210,32 @@ getReset: function(){
     item.value = '';
     item.disabled = false;
   });
-
   let inputTextRight = rightSide.querySelectorAll("input[type='text']");
   inputTextRight.forEach(function(item){
     item.value = '';
     item.disabled = false;
   });
 
-    periodSelect.disabled = false;
     incomePlus.disabled = false;
     expensesPlus.disabled = false;
     depositCheck.disabled = false;
     start.style.display = 'block';
     cancel.style.display = 'none';
+
+
+  
+    incomeItems = document.querySelectorAll('.income-items');
+      for(let i = 1; i <= incomeItems.length - 1; i++){
+        incomeItems[i].remove();
+      }
+
+    expensesItems = document.querySelectorAll('.expenses-items');
+      for(let i = 1; i <= expensesItems.length -1; i++){
+        expensesItems[i].remove();
+      }   
 }
 };
+
 
 start.addEventListener('click', appData.start.bind(appData));
 cancel.addEventListener('click', appData.getReset.bind(appData));
@@ -231,8 +243,6 @@ expensesPlus.addEventListener('click', appData.addExpensesBlock.bind(appData));
 incomePlus.addEventListener('click', appData.addIncomeBlock.bind(appData));
 periodSelect.addEventListener('input', appData.getPeriodSelect.bind(appData));
 });
-
-
 
 
 
