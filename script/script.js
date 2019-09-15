@@ -45,7 +45,7 @@ let appData = {
     mission: 0,
     start: function(){
       if (isNaN(salaryAmount.value) || salaryAmount.value.trim() === ''){
-        //alert(' Не верно заполнено поле "Месячный доход!"');
+        alert(' Не верно заполнено поле "Месячный доход!"');
 				return;
 			}
         this.budget = +salaryAmount.value;
@@ -70,7 +70,7 @@ showResult: function(){
     additionalIncomeValue.value = this.addIncome.join(',');
     targetMonthValue.value = Math.floor(this.getTargetMonth());
     incomePeriodValue.value = this.calcPeriod();
-    periodSelect.addEventListener('input', appData.getPeriodSelectValue.bind(appData));   
+    periodSelect.addEventListener('input', appData.getPeriodSelectValue.bind(appData));  
 },
 
 addExpensesBlock: function(){ 
@@ -214,7 +214,7 @@ getReset: function(){
     depositCheck.disabled = false;
     start.style.display = 'block';
     cancel.style.display = 'none';
-    periodSelect.value = '1';
+    periodSelect.value = 1;
     periodAmount.textContent = '1';
 
     this.deposit = false;
@@ -235,11 +235,11 @@ getReset: function(){
     
    const _this = this;
    this.addIncome.forEach(function(item){
-        delete this.addIncome[item];
+        delete _this.addIncome[item];
    });
 
    this.AddExpenses.forEach(function(item){
-    delete this.AddExpenses[item];
+    delete _this.AddExpenses[item];
 });      
    
     incomeItems = document.querySelectorAll('.income-items');
