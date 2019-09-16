@@ -226,22 +226,12 @@ getReset: function(){
     this.expensesMonth = 0;
     this.mission = 0;
 
-    for(let key in this.income){ // удаление свойств обьекта
-      delete this.income.key; 
-    }
-    for(let key in this.expenses){ // удаление свойств обьекта
-      delete this.expenses.key; 
-    }
-    
-   const _this = this;
-   this.addIncome.forEach(function(item){
-        delete _this.addIncome[item];
-   });
+    this.incomeMonth = 0;
+    this.income = {};
+    this.addIncome = [];
+    this.AddExpenses = [];
+    this.expenses = {};
 
-   this.AddExpenses.forEach(function(item){
-    delete _this.AddExpenses[item];
-});      
-   
     incomeItems = document.querySelectorAll('.income-items');
       for(let i = 1; i <= incomeItems.length - 1; i++){
         incomeItems[i].remove();
