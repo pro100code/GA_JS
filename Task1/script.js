@@ -16,25 +16,28 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (this.selector[0] == '.') {
                     elem = document.createElement('div');  // создаем div
                     elem.className = this.selector.slice(1, (this.selector).length); // задаем и называем класс, начиная со второго символа ввода
+                    elem.textContent = this.selector;
+                    document.body.append(elem);
                 } else if (this.selector[0] == '#') {
                     elem = document.createElement('p');   // создаем P
-                    elem.className = this.selector.slice(1, (this.selector).length); 
+                    elem.className = this.selector.slice(1, (this.selector).length);
+                    elem.textContent = this.selector;
+                    document.body.append(elem);
                 }
-
-                elem.innerHtml = this.selector;
-                 document.body.append(elem);
-                elem.style.cssText = `height:  this.height
-                                      width: this.width;
-                                      bg: this.bg;
-                                      fontSize: this.fontSize;
+                elem.style.cssText = `height:  ${this.height};
+                                      width: ${this.width};
+                                      background-color: ${this.bg};
+                                      fontSize: ${this.fontSize};
                                      `;
+
+                
 
       };
 
-      let domElementDiv = new DomElement('.helloDiv', '300px', '300px', 'red', '50px'),
-          domElementP = new DomElement('#helloP', '200px', '200px', 'blue', '50px');
-          
+      let domElementDiv = new DomElement('.helloDiv', '300px', '300px', 'red', '50px');
           domElementDiv.conditionCreateElement();
+         
+      let domElementP = new DomElement('#helloP', '200px', '200px', 'blue', '50px');
           domElementP.conditionCreateElement();
       
      
