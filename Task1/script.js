@@ -27,17 +27,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 elem.style.cssText = `height:  ${this.height};
                                       width: ${this.width};
                                       background-color: ${this.bg};
-                                      fontSize: ${this.fontSize};
+                                      font-size: ${this.fontSize};
                                      `;
 
                 
 
       };
 
-      let domElementDiv = new DomElement('.helloDiv', '300px', '300px', 'red', '50px');
+      let domElementDiv = new DomElement('.helloDiv', '300px', '300px', 'red', '30px');
           domElementDiv.conditionCreateElement();
          
-      let domElementP = new DomElement('#helloP', '200px', '200px', 'blue', '50px');
+      let domElementP = new DomElement('#helloP', '200px', '200px', 'blue', '30px');
           domElementP.conditionCreateElement();
       
      
