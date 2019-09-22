@@ -36,13 +36,10 @@ function Time(deadline) {
                 toDaySpan.textContent = dayArr[i];
             }
         }
-
         // показывает текущую дату
         curTimeSpan.textContent = timer.localTime;
-
         // показывает отставшиеся дни до НГ
         endYearSpan.textContent = timer.stopDay + ' ' + 'Дней';
-
         // время суток
         if (timer.localTimeRU > 4 || timer.localTimeRU < 12) {
             goodDatSpan.textContent = 'Утро';
@@ -54,11 +51,9 @@ function Time(deadline) {
             goodDatSpan.textContent = 'ночь';
         }
 
-
         if (timer.timeRemaining > 0) {
             setTimeout(CalculateDate, 1000);
         }
-
     }
     CalculateDate();
 }
