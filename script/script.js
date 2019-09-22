@@ -36,8 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
     incomeTitle = document.querySelector('.income-title'),
     incomeAmount = document.querySelector('.income-amount');
 
-  const AppData = function () { // создали прототип
-    this.income = {};
+  const AppData = function () { 
     this.incomeMonth = 0;
     this.addIncome = [];
     this.AddExpenses = [];
@@ -59,15 +58,16 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     this.budget = +salaryAmount.value;
 
-    //this.getIncomeExpenses(expensesItems, '.expenses-title', '.expenses-amount', this.expenses);
-    
     this.getExpenses();
     this.getExpensesMonth();
-    this.getAddExpenses();
-    //this.getIncomeExpenses(incomeItems, '.income-title', '.expenses-amount', this.income);
+
+    this.getAddIncomeExpenses(additionalExpensesItem);
+
+    //this.getAddExpenses();
     this.getIncome();
     this.getIncomeMonth();
-    this.getaddIncome();
+    //this.getaddIncome();
+    this.getAddIncomeExpenses(additionalIncomeItems);
     this.getInfoDeposit();
     this.getDepositCheck();
     this.getBudget();
@@ -123,6 +123,21 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   };
+
+
+//////////////////
+  AppData.prototype.getAddIncomeExpenses = function (addItems) {
+    let addExpenses = addItems.value.split(',');
+    const _this = this;
+    addExpenses.forEach(function (item) {
+      item = item.trim(); // метод уберает пробелы вначале и в конце
+      if (item !== '') {
+        _this.AddExpenses.push(item);
+      }
+    });
+  };
+/////////////
+
 
   AppData.prototype.getExpensesMonth = function () {
     const _this = this;
@@ -297,18 +312,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-
-  // AppData.prototype.getIncomeExpenses = function (allItems, title, amount, arrayIcomeExpenses) {
-  //   const _this = this;
-  //   allItems.forEach(function (item) {
-  //     let itemBody = item.querySelector(title).value,
-  //       cashItem = item.querySelector(amount).value;
-  //     if (itemBody !== '' && cashItem !== '') {
-  //       _this.arrayIcomeExpenses[itemBody] = +cashItem;
-  //     }
-  //   });
-  // };
-
+  
 
 
 
