@@ -30,8 +30,15 @@ let start = document.getElementById('start'),
 
     depositBank = document.querySelector('.deposit-bank'),
     depositAmount = document.querySelector('.deposit-amount'),
-    depositPercent = document.querySelector('.deposit-percent');
-    
+    depositPercent = document.querySelector('.deposit-percent'),
+
+
+    incomeTitle = document.querySelector('.income-title'),
+    incomeAmount = document.querySelector('.income-amount');
+
+
+
+   
 const AppData = function () {   // создали прототип
   this.income = {};
   this.incomeMonth = 0;           
@@ -253,7 +260,7 @@ AppData.prototype.getReset = function () {
     depositCheck.disabled = false;
     depositCheck.checked=false;
     depositBank.style.display = 'none';
-    depositBank.options.selectedIndex = 0;  // депозит начальный сделали 0
+    depositBank.options.selectedIndex = 0;  
     depositAmount.style.display = 'none';
     depositAmount.value = '';
     depositPercent.value = '';
@@ -287,45 +294,40 @@ AppData.prototype.getReset = function () {
       }   
 };
 
+
+
+
+AppData.prototype.getAddBlockPlus = function (blockItems, title, amount, items, allBtnPlus) {
+  let cloneBlockItems = blockItems[0].cloneNode(true),
+      cloneTitle = cloneBlockItems.querySelector(title),
+			cloneAmount = cloneBlockItems.querySelector(amount);
+			cloneTitle.value = '';
+			cloneAmount.value = '';                         
+      blockItems[0].parentNode.insertBefore(cloneBlockItems, allBtnPlus);  
+      blockItems = document.querySelectorAll(items);
+      if(blockItems.length === 3){ 
+        allBtnPlus.style.display = 'none';                                       
+      } 
+    };
+    
+
 AppData.prototype.eventListeners = function () { // привязка с глобального this к нашему прототипу
+  let newBlocIcome = this.getAddBlockPlus.bind(this);
+
   start.addEventListener('click', this.start.bind(this));
   cancel.addEventListener('click', this.getReset.bind(this));
-  expensesPlus.addEventListener('click', this.addExpensesBlock.bind(this));
-  incomePlus.addEventListener('click', this.addIncomeBlock.bind(this));
+  incomePlus.addEventListener('click', function() {
+		incomeItems = newBlocIcome(incomeItems, '.income-title', '.income-amount', '.income-items', incomePlus);
+  });
+  expensesPlus.addEventListener('click', function() {
+		expensesItems = newBlocIcome(expensesItems, '.expenses-title', '.expenses-amount', '.expenses-items', expensesPlus);
+	});
   periodSelect.addEventListener('input', this.getPeriodSelect.bind(this));
   depositCheck.addEventListener('change', this.getDepositCheck.bind(this));
 };
 
 const appData = new AppData();  // обозначили переменную прототипа
 appData.eventListeners();
-
-
-
-// depositCheck.addEventListener('change', function(){
-//   if(depositCheck.checked){   // если галочка в депозите есть, то... ( === true писать не обязательно)
-//      depositBank.style.display = 'inline-block';
-//      depositAmount.style.display = 'inline-block';
-//      appData.deposit = 'true';
-//      depositBank.addEventListener('change', function(){
-//        let selectIndex = this.options[this.selectedIndex].value; // обращение к элементу по его индексу
-//         if (selectIndex === 'other') {
-//           depositPercent.style.display = 'inline-block';
-//           depositPercent.disabled = false;
-//           depositPercent.value = '';
-//           // console.log(this.options);      получили все option и в конце индекс нащего выбранного банка
-//         } else {
-//           depositPercent.style.display = 'none';
-//           depositPercent.value = selectIndex;
-//         }
-//       });
-
-//   } else {
-//     depositBank.style.display = 'none';
-//     depositAmount.style.display = 'none';
-//     depositAmount.value = '';
-//     appData.deposit = 'false';
-//   }
-// });
 
 });
 
