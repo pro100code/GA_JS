@@ -57,4 +57,4 @@ function Time(deadline) {
     }
     CalculateDate();
 }
-Time('1 january 2020');
+Time('22 december 2019');
