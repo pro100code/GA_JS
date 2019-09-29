@@ -33,41 +33,41 @@ window.addEventListener('DOMContentLoaded', function () {
             menuItems = menu.querySelectorAll('ul>li'); // нашли все li в ul
 
 
-        // const handlerMunu = () => {
-        //     if (!menu.style.transform || menu.style.transform === `translate(-100%)`) {
-        //         menu.style.transform = `translate(0)`;
-        //     } else {
-        //         menu.style.transform = `translate(-100%)`;
-        //     }
-        // };
-
-        const handlerMenu = () => {
-            let positionMenu,
-                menuTranslate = 'translate',
-                count = '1%';
-                count = count +count;
-            positionMenu = requestAnimationFrame(handlerMenu);
-            
+        const handlerMunu = () => {
             if (!menu.style.transform || menu.style.transform === `translate(-100%)`) {
-                menu.style.transform = `translate(-100% + ${count})`;
-            } else if (menu.style.transform === `translate(0)`) {
+                menu.style.transform = `translate(0)`;
+            } else {
                 menu.style.transform = `translate(-100%)`;
             }
-
-
-
-
-
-
-
+        };
+        
+        const handlerMenu = () => {
+            // let positionMenu,
+            //     menuTranslate = 'translate',
+            //     count = '1%';
+            //     count = count +count;
             // positionMenu = requestAnimationFrame(handlerMenu);
-
+            
             // if (!menu.style.transform || menu.style.transform === `translate(-100%)`) {
-            //     menu.style.transform = `translate(0)`;
-            // } else {
+            //     menu.style.transform = `translate(-100% + ${count})`;
+            // } else if (menu.style.transform === `translate(0)`) {
             //     menu.style.transform = `translate(-100%)`;
             // }
-            //menu.classList.toggle('active-menu'); // добавляет или убирает класс с файла css, который уже написан   
+
+
+
+
+
+
+
+            menu.classList.toggle('active-menu');
+
+            if (!menu.style.transform || menu.style.transform === `translate(-100%)`) {
+                menu.style.transform = `translate(0)`;
+            } else {
+                menu.style.transform = `translate(-100%)`;
+            }
+            menu.classList.toggle('active-menu'); // добавляет или убирает класс с файла css, который уже написан   
         };
 
         btnMenu.addEventListener('click', handlerMenu);
