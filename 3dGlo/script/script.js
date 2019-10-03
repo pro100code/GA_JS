@@ -30,27 +30,30 @@ window.addEventListener('DOMContentLoaded', function () {
 
     // menu
     const toggleMenu = () => {
-        const btnMenu = document.querySelector('.menu'),
-            menu = document.querySelector('menu'),
-            closeBtn = document.querySelector('.close-btn'),
-            menuItems = menu.querySelectorAll('ul>li'); // нашли все li в ul
+        const menu = document.querySelector('menu'),
+        body = document.querySelector('body');
 
-        const handlerMenu = () => {
-            if (!(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) &&
-                window.innerWidth >= 1000) {
-                menu.classList.toggle('active-menu'); // добавляет или убирает класс с файла css, который уже написан
-            } else {
-                if (!menu.style.transform || menu.style.transform === `translate(-100%)`) {
-                    menu.style.transform = `translate(0)`;
-                } else {
-                    menu.style.transform = `translate(-100%)`;
-                }
+    body.addEventListener('click', (event) => {
+        let target = event.target;
+
+        if (!(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))) {
+
+            if (target.classList.contains('menu') || target.closest('.menu')) {
+                menu.classList.toggle('active-menu');
+            } else if (menu.classList.contains('active-menu') && !(target.closest('.active-menu'))) {
+                menu.classList.toggle('active-menu');
+            } else if (target.closest('.active-menu') && !(target.classList.contains('active-menu'))) {
+                menu.classList.toggle('active-menu');
             }
-        };
 
-        btnMenu.addEventListener('click', handlerMenu);
-        closeBtn.addEventListener('click', handlerMenu);
-        menuItems.forEach((elem) => elem.addEventListener('click', handlerMenu));
+        } else {
+            if (target.classList.contains('menu') || target.closest('.menu')) {
+                menu.style.transform = `translate(0)`;
+            } else if (target.closest('menu') && !(target.classList.contains('menu'))) {
+                menu.style.transform = `translate(-100%)`;
+            }
+        }
+    });
     };
     toggleMenu();
 
@@ -80,7 +83,7 @@ window.addEventListener('DOMContentLoaded', function () {
                 popUp.style.display = 'none';
             } else {
                 target = target.closest('.popup-content');
-                if (!target){
+                if (!target) {
                     popUp.style.display = 'none';
                 }
             }
@@ -125,5 +128,19 @@ window.addEventListener('DOMContentLoaded', function () {
         });
     };
     tabs();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 });
