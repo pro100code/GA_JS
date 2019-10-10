@@ -219,14 +219,14 @@ window.addEventListener('DOMContentLoaded', function () {
 
         slider.addEventListener('mouseover', (event) => {
             if (event.target.matches('.portfolio-btn') ||
-                event.target.marches('.dot')) {
+                event.target.matches('.dot')) {
                 stopSlide();
             }
         });
 
         slider.addEventListener('mouseout', (event) => {
             if (event.target.matches('.portfolio-btn') ||
-                event.target.marches('.dot')) {
+                event.target.matches('.dot')) {
                 startSlide();
             }
         });
